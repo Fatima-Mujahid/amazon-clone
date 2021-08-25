@@ -1,20 +1,17 @@
 import React from 'react';
 import './Header.css';
+import logo from './Amazon_logo.svg';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 
 function Header() {
   return (
     <div className="header">
-      <img
-        src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
-        alt="Amazon Logo"
-        className="header__logo"
-      />
+      <img src={logo} alt="Amazon Logo" className="header__logo" />
 
       <div className="header__search">
         <input className="header__searchInput" type="text" />
-        <SearchIcon className="header__searchButton" />
+        <SearchIcon className="header__searchIcon" />
       </div>
 
       <div className="header__nav">
@@ -34,7 +31,7 @@ function Header() {
         </div>
 
         <div className="header__optionBasket">
-          <ShoppingBasketIcon className="header__optionLineOne" />
+          <ShoppingBasketIcon />
           <span className="header__optionLineTwo header__basketCount">0</span>
         </div>
       </div>
