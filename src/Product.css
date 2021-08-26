@@ -14,7 +14,7 @@
 .product__info {
   margin-bottom: 1rem;
   height: 6.25rem;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .product__price {
