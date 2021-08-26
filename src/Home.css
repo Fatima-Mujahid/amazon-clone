@@ -1,0 +1,15 @@
+.home {
+  margin-bottom: 5rem;
+}
+.home__image {
+  width: 100%;
+  /* object-fit: contain; */
+  margin-bottom: -9rem;
+  mask-image: linear-gradient(rgba(0, 0, 0, 1), transparent);
+  z-index: -1;
+}
+
+.home__row {
+  display: flex;
+  margin: 0 0.75rem;
+}
