@@ -18,9 +18,9 @@ function Product() {
         </div>
       </div>
       <img
+        className="product__image"
         src="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg"
         alt="Product"
-        className="product__image"
       />
       <button className="product__button">Add to Basket</button>
     </div>
