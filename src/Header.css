@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.85rem 1.25rem;
+  padding: 0.85rem 1.5rem;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -22,7 +22,7 @@
 .header__search:focus,
 .header__search:focus-within,
 .header__search:focus-visible {
-  box-shadow: 0 0 0 3px #ff9900;
+  box-shadow: 0 0 0 3px #edb21d;
   border-radius: 1px;
   transition: all 0.05s ease;
 }
@@ -40,13 +40,13 @@
 
 .header__searchIcon {
   cursor: pointer;
-  background-color: #febd69;
+  background-color: #f0c14b;
   color: #131921;
   padding: 0.3rem 0.4rem;
 }
 
 .header__searchIcon:hover {
-  background-color: #f3a847;
+  background-color: #edb21d;
   transition: all 0.3s;
 }
 

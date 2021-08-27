@@ -38,12 +38,12 @@
   margin-top: 1.25rem;
   padding: 0.2rem 0.35rem;
   border: 1px solid;
-  border-color: #e48d41 #e6944c;
+  border-color: #a88734 #9c7e31 #846a29;
   border-radius: 0.15rem;
-  background-color: #febd69;
+  background-color: #f0c14b;
 }
 
 .product__button:hover {
-  background-color: #f3a847;
+  background-color: #edb21d;
   transition: all 0.3s;
 }

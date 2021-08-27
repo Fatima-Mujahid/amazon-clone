@@ -14,7 +14,7 @@ function Product({ product }) {
         <div className="product__rating">
           <StarRatings
             rating={product.rating}
-            starRatedColor="#FFA41C"
+            starRatedColor="#f0c14b"
             noOfStars={5}
             starDimension="1.1rem"
             starSpacing="0rem"
