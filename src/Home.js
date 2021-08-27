@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Home.css';
 import Product from './Product';
 import { products } from './sample';
 
 function Home() {
+  useEffect(() => {
+    //AXIOS REQUEST
+  }, []);
+
   return (
     <div className="home">
       <div className="home__container">

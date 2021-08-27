@@ -1,5 +1,6 @@
 import React from 'react';
 import './Product.css';
+import StarRatings from 'react-star-ratings';
 
 function Product({ product }) {
   return (
@@ -11,7 +12,14 @@ function Product({ product }) {
           <strong>{product?.price}</strong>
         </p>
         <div className="product__rating">
-          <p>🌟{product?.rating}</p>
+          <StarRatings
+            rating={product.rating}
+            starRatedColor="#FFA41C"
+            noOfStars={5}
+            starDimension="1.1rem"
+            starSpacing="0rem"
+            name="rating"
+          />
         </div>
       </div>
       <img

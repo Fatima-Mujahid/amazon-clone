@@ -22,7 +22,7 @@
 }
 
 .product__rating {
-  display: flex;
+  margin-top: 0.25rem;
 }
 
 .product__image {
@@ -37,7 +37,8 @@
   color: #131921;
   margin-top: 1.25rem;
   padding: 0.2rem 0.35rem;
-  border: 1px solid #131921;
+  border: 1px solid;
+  border-color: #e48d41 #e6944c;
   border-radius: 0.15rem;
   background-color: #febd69;
 }
