@@ -1,8 +1,18 @@
 import React from 'react';
 import './Product.css';
 import StarRatings from 'react-star-ratings';
+import { useStateValue } from './StateProvider';
 
 function Product({ product }) {
+  const [{ basket }, dispatch] = useStateValue();
+
+  const addToBasket = () => {
+    dispatch({
+      type: 'ADD_TO_BASKET',
+      item: product,
+    });
+  };
+
   return (
     <div className="product">
       <div className="product__info">
@@ -13,7 +23,7 @@ function Product({ product }) {
         </p>
         <div className="product__rating">
           <StarRatings
-            rating={product.rating}
+            rating={product?.rating}
             starRatedColor="#f0c14b"
             noOfStars={5}
             starDimension="1.1rem"
@@ -27,7 +37,9 @@ function Product({ product }) {
         src={product?.image}
         alt={product?.title}
       />
-      <button className="product__button">Add to Basket</button>
+      <button className="product__button" onClick={addToBasket}>
+        Add to Basket
+      </button>
     </div>
   );
 }
