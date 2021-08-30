@@ -17,10 +17,12 @@ function Product({ product }) {
     <div className="product">
       <div className="product__info">
         <p className="product__title">{product?.title}</p>
+
         <p className="product__price">
           <small>$</small>
           <strong>{product?.price}</strong>
         </p>
+
         <div className="product__rating">
           <StarRatings
             rating={product?.rating}
@@ -32,11 +34,13 @@ function Product({ product }) {
           />
         </div>
       </div>
+
       <img
         className="product__image"
         src={product?.image}
         alt={product?.title}
       />
+
       <button className="product__button" onClick={addToBasket}>
         Add to Basket
       </button>
