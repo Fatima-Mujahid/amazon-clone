@@ -29,9 +29,9 @@ function CheckoutProduct({ checkoutProduct }) {
             name="rating"
           />
         </div>
-      </div>
 
-      <button className="checkoutProduct__button">Remove from Basket</button>
+        <button className="checkoutProduct__button">Remove from Basket</button>
+      </div>
     </div>
   );
 }

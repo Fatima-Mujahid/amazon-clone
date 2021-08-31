@@ -5,6 +5,10 @@
   height: max-content;
 }
 
+.checkout__left {
+  margin-right: 1rem;
+}
+
 .checkout__ad {
   width: 100%;
   margin-bottom: 0.75rem;
@@ -12,6 +16,5 @@
 
 .checkout__title {
   padding: 0.5rem;
-  margin-right: 1rem;
   border-bottom: 1px solid lightgrey;
 }
