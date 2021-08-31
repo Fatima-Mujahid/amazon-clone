@@ -17,4 +17,5 @@
 .checkout__title {
   padding: 0.5rem;
   border-bottom: 1px solid lightgrey;
+  margin-bottom: 0.25rem;
 }
