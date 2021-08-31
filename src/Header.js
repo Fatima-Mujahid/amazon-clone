@@ -1,10 +1,10 @@
 import React from 'react';
 import './Header.css';
-import { Link } from 'react-router-dom';
 import logo from './Amazon_logo.svg';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { useStateValue } from './StateProvider';
+import { Link } from 'react-router-dom';
 
 function Header() {
   const [{ basket }, dispatch] = useStateValue();
@@ -12,7 +12,7 @@ function Header() {
   return (
     <div className="header">
       <Link to="/">
-        <img src={logo} alt="Amazon Logo" className="header__logo" />
+        <img className="header__logo" src={logo} alt="Amazon Logo" />
       </Link>
 
       <div className="header__search">
@@ -21,10 +21,12 @@ function Header() {
       </div>
 
       <div className="header__nav">
-        <div className="header__option">
-          <span className="header__optionLineOne">Hello, Guest</span>
-          <span className="header__optionLineTwo">Sign In</span>
-        </div>
+        <Link to="/login">
+          <div className="header__option">
+            <span className="header__optionLineOne">Hello, Guest</span>
+            <span className="header__optionLineTwo">Sign In</span>
+          </div>
+        </Link>
 
         <div className="header__option">
           <span className="header__optionLineOne">Returns</span>
