@@ -1,14 +1,51 @@
 import React, { useState } from 'react';
 import './Login.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import axios from './axios';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
+  const history = useHistory();
 
   const loginHandler = (e) => {
     e.preventDefault();
-    //AXIOS REQUEST
+    axios
+      .post('/user/login', { email, password })
+
+      .then((response) => {
+        setMessage(response.data.message);
+        console.log(response);
+        setEmail('');
+        setPassword('');
+        history.push('/');
+      })
+
+      .catch((error) => {
+        setError(error.message);
+        console.log(error);
+      });
+  };
+
+  const registerHandler = (e) => {
+    e.preventDefault();
+    axios
+      .post('/user/register', { email, password })
+
+      .then((response) => {
+        setMessage(response.data.message);
+        console.log(response);
+        setEmail('');
+        setPassword('');
+        history.push('/login');
+      })
+
+      .catch((error) => {
+        setError(error.message);
+        console.log(error);
+      });
   };
 
   return (
@@ -64,7 +101,7 @@ function Login() {
           Interest-Based Ads Notice.
         </p>
 
-        <button className="login__registerButton">
+        <button className="login__registerButton" onClick={registerHandler}>
           Create Your Amazon Account
         </button>
       </div>

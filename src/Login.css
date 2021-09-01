@@ -34,9 +34,18 @@
 }
 
 .login__input {
-  width: 94.5%;
+  border: 1px solid darkgray;
+  border-radius: 0.15rem;
+  width: 95.1%;
   padding: 0.4rem;
   margin-bottom: 0.625rem;
+}
+
+.login__input:focus,
+.login__input:focus-visible {
+  outline: none;
+  border-color: #e77600;
+  box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
 }
 
 .login__signInButton {
