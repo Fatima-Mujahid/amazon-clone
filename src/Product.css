@@ -32,18 +32,6 @@
 }
 
 .product__button {
-  cursor: pointer;
-  font-weight: 700;
-  color: #131921;
   margin-top: 1.25rem;
   padding: 0.2rem 0.35rem;
-  border: 1px solid;
-  border-color: #a88734 #9c7e31 #846a29;
-  border-radius: 0.15rem;
-  background-color: #f0c14b;
-}
-
-.product__button:hover {
-  background-color: #edb21d;
-  transition: all 0.3s;
 }

@@ -1,0 +1,64 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  height: 100vh;
+}
+
+.login__logo {
+  width: 6rem;
+  object-fit: contain;
+  margin: 1.25rem;
+}
+
+.login__container {
+  /* display: flex;
+  flex-direction: column; */
+  border: 1px solid lightgray;
+  border-radius: 0.25rem;
+  padding: 1.5rem;
+  width: 18.75rem;
+}
+
+.login__title {
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+.login__label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.login__input {
+  width: 94.5%;
+  padding: 0.4rem;
+  margin-bottom: 0.625rem;
+}
+
+.login__signInButton {
+  width: 100%;
+  padding: 0.3rem 0;
+  margin-top: 0.5rem;
+}
+
+.login__text {
+  font-size: 0.75rem;
+  margin: 1rem 0;
+}
+
+.login__registerButton {
+  width: 100%;
+  padding: 0.3rem 0;
+  margin-bottom: 0.25rem;
+  border-color: darkgray;
+  background-color: #efefef;
+}
+
+.login__registerButton:hover {
+  background-color: #dcdfe4;
+  transition: all 0.3s;
+}

@@ -18,18 +18,6 @@
 }
 
 .subtotal__button {
-  cursor: pointer;
-  font-weight: 700;
-  color: #131921;
   width: 100%;
   padding: 0.2rem 0;
-  border: 1px solid;
-  border-color: #a88734 #9c7e31 #846a29;
-  border-radius: 0.15rem;
-  background-color: #f0c14b;
-}
-
-.subtotal__button:hover {
-  background-color: #edb21d;
-  transition: all 0.3s;
 }

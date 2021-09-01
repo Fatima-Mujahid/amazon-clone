@@ -6,6 +6,11 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const loginHandler = (e) => {
+    e.preventDefault();
+    //AXIOS REQUEST
+  };
+
   return (
     <div className="login">
       <Link to="/">
@@ -17,21 +22,43 @@ function Login() {
       </Link>
 
       <div className="login__container">
-        <h1>Sign-In</h1>
+        <h1 className="login__title">Sign-In</h1>
 
-        <form onSubmit>
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" onChange />
+        <form onSubmit={loginHandler}>
+          <label className="login__label" htmlFor="email">
+            Email
+          </label>
+          <input
+            className="login__input"
+            type="email"
+            name="email"
+            id="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
 
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" onChange />
+          <label className="login__label" htmlFor="password">
+            Password
+          </label>
+          <input
+            className="login__input"
+            type="password"
+            name="password"
+            id="password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
 
           <button className="login__signInButton" type="submit">
             Sign In
           </button>
         </form>
 
-        <p>
+        <p className="login__text">
           By signing-in you agree to the AMAZON CLONE Conditions of Use &amp;
           Sale. Please see our Privacy Notice, our Cookies Notice and our
           Interest-Based Ads Notice.
