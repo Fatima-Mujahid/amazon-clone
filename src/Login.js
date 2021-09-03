@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import './Login.css';
 import { Link, useHistory } from 'react-router-dom';
 import axios from './axios';
+import { useStateValue } from './StateProvider';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [{ user }, dispatch] = useStateValue();
   const history = useHistory();
 
   const loginHandler = (e) => {
@@ -17,10 +19,15 @@ function Login() {
 
       .then((response) => {
         setMessage(response.data.message);
+        localStorage.setItem('token', response.data.token);
         console.log(response);
+        dispatch({
+          type: 'SET_USER',
+          user: response.data.data,
+        });
         setEmail('');
         setPassword('');
-        history.push('/');
+        history.goBack();
       })
 
       .catch((error) => {
