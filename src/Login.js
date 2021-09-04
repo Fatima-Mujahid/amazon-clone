@@ -12,47 +12,37 @@ function Login() {
   const [{ user }, dispatch] = useStateValue();
   const history = useHistory();
 
-  const loginHandler = (e) => {
+  const loginHandler = async (e) => {
     e.preventDefault();
-    axios
-      .post('/user/login', { email, password })
+    const response = await axios.post('/user/login', { email, password });
 
-      .then((response) => {
-        setMessage(response.data.message);
-        localStorage.setItem('token', response.data.token);
-        console.log(response);
-        dispatch({
-          type: 'SET_USER',
-          user: response.data.data,
-        });
-        setEmail('');
-        setPassword('');
-        history.goBack();
-      })
-
-      .catch((error) => {
-        setError(error.message);
-        console.log(error);
+    if (response.status === 200) {
+      setMessage(response.data.message);
+      localStorage.setItem('token', response.data.token);
+      dispatch({
+        type: 'SET_USER',
+        user: response.data.data,
       });
+      setEmail('');
+      setPassword('');
+      history.goBack();
+    } else {
+      setError(response.data.message);
+    }
   };
 
-  const registerHandler = (e) => {
+  const registerHandler = async (e) => {
     e.preventDefault();
-    axios
-      .post('/user/register', { email, password })
+    const response = await axios.post('/user/register', { email, password });
 
-      .then((response) => {
-        setMessage(response.data.message);
-        console.log(response);
-        setEmail('');
-        setPassword('');
-        history.push('/login');
-      })
-
-      .catch((error) => {
-        setError(error.message);
-        console.log(error);
-      });
+    if (response.status === 200) {
+      setMessage(response.data.message);
+      setEmail('');
+      setPassword('');
+      history.push('/login');
+    } else {
+      setError(response.data.message);
+    }
   };
 
   return (
