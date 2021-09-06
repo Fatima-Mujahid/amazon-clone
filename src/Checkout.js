@@ -7,7 +7,7 @@ import { v1 as uuidv1 } from 'uuid';
 import { useStateValue } from './StateProvider';
 
 function Checkout() {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ user, basket }, dispatch] = useStateValue();
 
   return (
     <div className="checkout">
@@ -18,6 +18,9 @@ function Checkout() {
           className="checkout__ad"
         />
         <div>
+          <h3 className="checkout__username">
+            Hello, {user?.email.substring(0, user?.email.lastIndexOf('@'))}
+          </h3>
           <h2 className="checkout__title">Your Shopping Basket</h2>
           <FlipMove>
             {basket?.map((item) => (

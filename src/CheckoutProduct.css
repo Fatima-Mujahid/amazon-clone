@@ -11,6 +11,11 @@
   height: 11.25rem;
   width: 11.25rem;
   object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.checkoutProduct__image:hover {
+  transform: scale(1.05);
 }
 
 .checkoutProduct__title {

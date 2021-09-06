@@ -19,3 +19,7 @@
   border-bottom: 1px solid lightgrey;
   margin-bottom: 0.25rem;
 }
+
+.checkout__username {
+  margin-left: 0.5rem;
+}
