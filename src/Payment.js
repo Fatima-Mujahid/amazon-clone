@@ -1,6 +1,7 @@
 import React from 'react';
 import './Payment.css';
 import CheckoutProduct from './CheckoutProduct';
+import { Link } from 'react-router-dom';
 import { useStateValue } from './StateProvider';
 
 function Payment() {
@@ -9,6 +10,14 @@ function Payment() {
   return (
     <div className="payment">
       <div className="payment__container">
+        <h1>
+          Checkout (
+          <Link to="/checkout">
+            {basket?.length} {basket?.length > 1 ? 'items' : 'item'}
+          </Link>
+          )
+        </h1>
+
         <div className="payment__section">
           <div className="payment__title">
             <h3>Delivery Address</h3>
@@ -38,7 +47,7 @@ function Payment() {
             <h3>Payment Method</h3>
           </div>
 
-          <div>{/* PAYMENT METHOD */}</div>
+          <div className="payment__details">{/* PAYMENT METHOD */}</div>
         </div>
       </div>
     </div>
