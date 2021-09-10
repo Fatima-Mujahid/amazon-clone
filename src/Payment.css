@@ -30,3 +30,11 @@
 .payment__details {
   flex: 0.8;
 }
+
+.payment__details {
+  flex: 0.2;
+}
+
+.payment__details > h3 {
+  margin-bottom: 0.75rem;
+}

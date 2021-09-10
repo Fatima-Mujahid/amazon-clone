@@ -7,8 +7,8 @@ import { useStateValue } from './StateProvider';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
-  const [error, setError] = useState('');
+  const [message, setMessage] = useState(null);
+  const [error, setError] = useState(null);
   const [{ user }, dispatch] = useStateValue();
   const history = useHistory();
 
