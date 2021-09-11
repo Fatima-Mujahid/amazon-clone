@@ -1,26 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import './Orders.css';
+import Order from './Order';
 import { useStateValue } from './StateProvider';
 import axios from './axios';
 
 function Orders() {
   const [orders, setOrders] = useState([]);
   const [error, setError] = useState(null);
-  const [{ user, basket }, dispatch] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get('/orders');
-      if (response.status === 200) {
-        setOrders(response.data.data);
+      if (user) {
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        };
+        const response = await axios.get('/orders', config);
+        if (response.status === 200) {
+          setOrders(response.data.data);
+        } else {
+          setError(response.data.message);
+        }
       } else {
-        setError(response.data.message);
+        setOrders([]);
       }
     }
     fetchData();
-  }, []);
-
-  console.log(orders);
+  }, [user]);
 
   return (
     <div className="orders">
