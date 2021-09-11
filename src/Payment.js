@@ -6,11 +6,14 @@ import ReactDOM from 'react-dom';
 import { Link, useHistory } from 'react-router-dom';
 import { useStateValue } from './StateProvider';
 import { getBasketTotal } from './reducer';
+import axios from './axios';
 
 const PayPalButton = window.paypal.Buttons.driver('react', { React, ReactDOM });
 
 function Payment() {
   const [paid, setPaid] = useState(false);
+  const [paypalError, setPaypalError] = useState(null);
+  const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
   const [{ user, basket }, dispatch] = useStateValue();
   const history = useHistory();
@@ -32,10 +35,25 @@ function Payment() {
     const order = await actions.order.capture();
     setPaid(true);
     console.log(order);
+
+    const response = await axios.post('/orders', {
+      user: user?._id,
+      payerEmail: order?.payer?.email_address,
+      paymentId: order?.purchase_units?.[0].payments?.captures?.[0].id,
+      amount: order?.purchase_units?.[0].amount?.value,
+      products: basket?.map((item) => item._id),
+      status: order?.status,
+    });
+
+    if (response.status === 200) {
+      setMessage(response.data.message);
+    } else {
+      setError(response.data.message);
+    }
   };
 
-  const onError = (error) => {
-    setError(error);
+  const onError = (paypalError) => {
+    setPaypalError(paypalError);
   };
 
   if (paid) {
@@ -45,8 +63,8 @@ function Payment() {
     history.replace('/orders');
   }
 
-  if (error) {
-    console.log(error);
+  if (paypalError) {
+    console.log(paypalError);
   }
 
   return (

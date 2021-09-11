@@ -6,6 +6,7 @@ import Home from './Home';
 import Checkout from './Checkout';
 import Login from './Login';
 import Payment from './Payment';
+import Orders from './Orders';
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
           <Route exact path="/payment">
             <Header />
             <Payment />
+          </Route>
+          <Route exact path="/orders">
+            <Header />
+            <Orders />
           </Route>
           <Route path="/">
             <Header />
